@@ -39,9 +39,11 @@ async def start_handler(bot: Client, event: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"),
-                 InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")],
-                [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")]
+                [InlineKeyboardButton("Channel", url="https://t.me/TeleRoidGroup"),
+                 InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
+                [InlineKeyboardButton("🍃 Help", callback_data="help"),
+                 InlineKeyboardButton("🗣️ About", callback_data="about")],
+                [InlineKeyboardButton("🔐 Close", callback_data="closeMeh"),
             ]
         )
     )
@@ -177,8 +179,8 @@ async def delete_thumb_handler(bot: Client, event: Message):
     await event.reply_text(
         "Custom Thumbnail Deleted Successfully!",
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("Go To Settings", callback_data="openSettings")],
-            [InlineKeyboardButton("Close", callback_data="closeMeh")]
+            [InlineKeyboardButton("Check Settings", callback_data="openSettings")
+             InlineKeyboardButton("Close", callback_data="closeMeh")]
         ])
     )
 
@@ -205,13 +207,13 @@ async def show_thumb_handler(bot: Client, event: Message):
                 await bot.send_message(
                     chat_id=event.chat.id,
                     text=f"Unable to send Thumbnail!\n\n**Error:** `{err}`",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="closeMeh")]]),
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔐 Close 🔐", callback_data="closeMeh")]]),
                     reply_to_message_id=event.message_id
                 )
             except:
                 pass
     else:
-        await event.reply_text("No Thumbnail Found in Database!\nSend a Thumbnail to Save.", quote=True)
+        await event.reply_text("No Thumbnail Found in Database!\nSend a Thumbnail to Save it for New File.", quote=True)
 
 
 @RenameBot.on_message(filters.private & filters.command("settings"))
@@ -251,12 +253,12 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await cb.message.edit(
                     text="Current Process Cancelled!",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]])
                 )
         except TimeoutError:
             await cb.message.edit(
                 text="Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me File Again to Rename.",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]])
             )
     elif "triggerPrefix" in cb.data:
         current_prefix = await db.get_prefix(cb.from_user.id)
@@ -273,20 +275,20 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 elif ask_.text and (ask_.text.startswith("/") is True):
                     await cb.message.edit(
                         text="Current Process Cancelled!",
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]])
                     )
             except TimeoutError:
                 await cb.message.edit(
                     text="Sorry Unkil,\n5 Minutes Passed! I can't wait more.",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]])
                 )
         else:
             await cb.message.edit(
                 text=f"**Current Prefix:** `{current_prefix}`",
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Set New Prefix", callback_data="forceNewPrefix")],
-                        [InlineKeyboardButton("Go Back", callback_data="openSettings")]
+                        [InlineKeyboardButton("Set New Prefix", callback_data="forceNewPrefix")
+                         InlineKeyboardButton("Go Back", callback_data="openSettings")]
                     ]
                 )
             )
@@ -307,7 +309,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                     await bot.send_message(
                         chat_id=cb.message.chat.id,
                         text=f"Unable to send Thumbnail!\n\n**Error:** `{err}`",
-                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("❎ Close ❎", callback_data="closeMeh")]])
+                        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🔐 Close ", callback_data="closeMeh")]])
                     )
                 except:
                     pass
@@ -321,7 +323,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             try:
                 await cb.message.edit(
                     text=f"**Current Custom Caption:**\n\n`{custom_caption_}`",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Change Custom Caption", callback_data="forceChangeCaption")]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("✒ Change Custom Caption ✒", callback_data="forceChangeCaption")]])
                 )
             except MessageNotModified:
                 pass
