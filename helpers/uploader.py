@@ -49,7 +49,7 @@ async def UploadFile(bot: Client, message: Message, file_path: str, file_size):
                      InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
                     [InlineKeyboardButton("Help", callback_data="help"),
                      InlineKeyboardButton("About", callback_data="about")],
-                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
+                    [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
                 ]
             )
         )
@@ -152,7 +152,7 @@ async def UploadVideo(bot: Client, message: Message, file_path: str, file_size, 
                      InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
                     [InlineKeyboardButton("Help", callback_data="help"),
                      InlineKeyboardButton("About", callback_data="about")],
-                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
+                    [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
                 ]
             )
         )
@@ -211,7 +211,7 @@ async def UploadAudio(bot: Client, message: Message, file_path: str, file_size, 
                      InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
                     [InlineKeyboardButton("Help", callback_data="help"),
                      InlineKeyboardButton("About", callback_data="about")],
-                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
+                    [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
                 ]
             )
         )
