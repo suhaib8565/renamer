@@ -24,6 +24,11 @@ Send me any type of media to Rename.
 
 Made with ❤ by @TeleRoidGroup.
     """
+    HELP = """
+
+    """
+    ABOUT = """
+    """
     PROGRESS = """\n
 ╭───[**🔅Progress Bar🔅**]───⍟
 │
