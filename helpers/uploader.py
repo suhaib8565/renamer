@@ -36,25 +36,27 @@ async def UploadFile(bot: Client, message: Message, file_path: str, file_size):
             document=file_path,
             progress=progress_for_pyrogram,
             progress_args=(
-                "Uploading File ...",
+                "Uploading the File .....",
                 message,
                 c_time
             ),
             force_document=True,
             thumb=file_thumbnail,
-            caption=((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
+            caption=((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n📂**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n🗂**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                    [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"),
-                     InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]
+                    [InlineKeyboardButton("Channel", url="https://t.me/TeleRoidGroup"),
+                     InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
+                    [InlineKeyboardButton("Help", callback_data="help"),
+                     InlineKeyboardButton("About", callback_data="about")],
+                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
                 ]
             )
         )
         await asyncio.sleep(Config.SLEEP_TIME)
         forward_ = await sent_.forward(chat_id=Config.LOG_CHANNEL)
         await forward_.reply_text(
-            text=f"**User:** [{message.chat.first_name}](tg://user?id={str(message.chat.id)})\n**Username:** `{message.chat.username}`\n**UserID:** `{message.chat.id}`",
+            text=f"**User:** [{message.chat.first_name}](tg://user?id={str(message.chat.id)})\n🗣️**Username:** `{message.chat.username}`\n🍃**UserID:** `{message.chat.id}`",
             disable_web_page_preview=True,
             quote=True
         )
@@ -146,9 +148,11 @@ async def UploadVideo(bot: Client, message: Message, file_path: str, file_size, 
             caption=((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                    [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"),
-                     InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]
+                    [InlineKeyboardButton("Channel", url="https://t.me/TeleRoidGroup"),
+                     InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
+                    [InlineKeyboardButton("Help", callback_data="help"),
+                     InlineKeyboardButton("About", callback_data="about")],
+                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
                 ]
             )
         )
@@ -203,16 +207,18 @@ async def UploadAudio(bot: Client, message: Message, file_path: str, file_size, 
             caption=((Config.CAPTION.format((await bot.get_me()).username) + f"\n\n**File Name:** `{file_path.rsplit('/', 1)[-1]}`\n**File Size:** `{humanbytes(file_size)}`") if (caption_ is None) else caption_),
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [InlineKeyboardButton("Developer - @AbirHasan2005", url="https://t.me/AbirHasan2005")],
-                    [InlineKeyboardButton("Support Group", url="https://t.me/DevsZone"),
-                     InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")]
+                    [InlineKeyboardButton("Channel", url="https://t.me/TeleRoidGroup"),
+                     InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
+                    [InlineKeyboardButton("Help", callback_data="help"),
+                     InlineKeyboardButton("About", callback_data="about")],
+                    [InlineKeyboardButton("🔐 Close", callback_data="close")]
                 ]
             )
         )
         await asyncio.sleep(Config.SLEEP_TIME)
         forward_ = await sent_.forward(chat_id=Config.LOG_CHANNEL)
         await forward_.reply_text(
-            text=f"**User:** [{message.chat.first_name}](tg://user?id={str(message.chat.id)})\n**Username:** `{message.chat.username}`\n**UserID:** `{message.chat.id}`",
+            text=f"👤**User:** [{message.chat.first_name}](tg://user?id={str(message.chat.id)})\n🗣️**Username:** `{message.chat.username}`\n🍃**UserID:** `{message.chat.id}`",
             disable_web_page_preview=True,
             quote=True
         )
