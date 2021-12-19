@@ -371,7 +371,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Go Back", callback_data="openSettings")]])
             )
 
-@Bot.on_callback_query()
+@RenameBot.on_callback_query()
 async def button(bot: Client, cmd: CallbackQuery):
 
     cb_data = cmd.data
