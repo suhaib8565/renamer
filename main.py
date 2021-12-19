@@ -368,8 +368,70 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         except TimeoutError:
             await cb.message.edit(
                 text="Sorry Unkil,\n5 Minutes Passed! I can't wait more.",
-                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Go Back", callback_data="openSettings")]])
             )
+
+@Bot.on_callback_query()
+async def button(bot: Client, cmd: CallbackQuery):
+
+    cb_data = cmd.data
+    if "aboutbot" in cb_data:
+        await cmd.message.edit(
+            Config.ABOUT_BOT_TEXT,
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+					[
+						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://t.me/Moviesflixers_DL")
+					],
+					[
+						InlineKeyboardButton("♻ Help", callback_data="help"),
+						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
+					]
+	        ]
+            )
+        )
+
+    elif "aboutdevs" in cb_data:
+        await cmd.message.edit(
+            Config.ABOUT_DEV_TEXT,
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                                        [
+						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ", url="https://t.me/Moviesflixers_DL")
+					],
+					[
+						InlineKeyboardButton("👥 Aʙᴏᴜᴛ", callback_data="about"),
+						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
+					]
+                ]
+            )
+        )
+
+    elif "gotohome" in cb_data:
+        await cmd.message.edit(
+            Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+						InlineKeyboardButton("Sᴜᴘᴘᴏʀᴛ", url="https://t.me/TeleRoid14"),
+						InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/TeleRoidGroup")
+					],
+                                        [
+						InlineKeyboardButton("🍃 Help ", callback_data="help"),
+						InlineKeyboardButton("🗣️ About", callback_data="about")
+			                ],
+                                        [
+						InlineKeyboardButton("🔐 Cʟᴏsᴇ ", callback_data="closeMeh") 
+					]
+                ]
+            )
+        )
 
 
 RenameBot.run()
