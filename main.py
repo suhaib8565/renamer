@@ -375,9 +375,9 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
 async def button(bot: Client, cmd: CallbackQuery):
 
     cb_data = cmd.data
-    if "aboutbot" in cb_data:
+    if "about" in cb_data:
         await cmd.message.edit(
-            Config.ABOUT_BOT_TEXT,
+            Config.ABOUT_TELEROID,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -393,9 +393,9 @@ async def button(bot: Client, cmd: CallbackQuery):
             )
         )
 
-    elif "aboutdevs" in cb_data:
+    elif "help" in cb_data:
         await cmd.message.edit(
-            Config.ABOUT_DEV_TEXT,
+            Config.HELP_TELEROID,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -411,9 +411,9 @@ async def button(bot: Client, cmd: CallbackQuery):
             )
         )
 
-    elif "gotohome" in cb_data:
+    elif "home" in cb_data:
         await cmd.message.edit(
-            Config.HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            Config.START_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
