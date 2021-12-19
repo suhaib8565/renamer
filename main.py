@@ -155,7 +155,7 @@ async def rename_handler(bot: Client, event: Message):
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await reply_.edit("Current Process Cancelled!")
         except TimeoutError:
-            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me File Again to Rename.")
+            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me the File Once Again to Rename.")
 
 
 @RenameBot.on_message(filters.private & filters.photo & ~filters.edited)
@@ -179,7 +179,7 @@ async def delete_thumb_handler(bot: Client, event: Message):
     await event.reply_text(
         "Custom Thumbnail Deleted Successfully!",
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("Check Settings", callback_data="openSettings")
+            [InlineKeyboardButton("Check Settings", callback_data="openSettings"),
              InlineKeyboardButton("Close", callback_data="closeMeh")]
         ])
     )
@@ -287,7 +287,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 text=f"**Current Prefix:** `{current_prefix}`",
                 reply_markup=InlineKeyboardMarkup(
                     [
-                        [InlineKeyboardButton("Set New Prefix", callback_data="forceNewPrefix")
+                        [InlineKeyboardButton("Set New Prefix", callback_data="forceNewPrefix"),
                          InlineKeyboardButton("Go Back", callback_data="openSettings")]
                     ]
                 )
@@ -343,8 +343,8 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                         quote=True,
                         reply_markup=InlineKeyboardMarkup(
                             [
-                                [InlineKeyboardButton("Try Again", callback_data="triggerCaption")],
-                                [InlineKeyboardButton("Go Back", callback_data="openSettings")]
+                                [InlineKeyboardButton("Try Again", callback_data="triggerCaption"),
+                                 InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]
                             ]
                         )
                     )
@@ -355,15 +355,15 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 await cb.message.edit(
                     "Custom Caption Removed Successfully!",
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("Go To Settings", callback_data="openSettings")],
-                        [InlineKeyboardButton("Close", callback_data="closeMeh")]
+                        [InlineKeyboardButton("Here Settings", callback_data="openSettings"),
+                         InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
                     ])
                 )
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await cb.message.edit(
                     text="Current Process Cancelled!",
                     reply_markup=InlineKeyboardMarkup(
-                        [[InlineKeyboardButton("Go Back", callback_data="openSettings")]])
+                        [[InlineKeyboardButton("🚶Go Back", callback_data="openSettings")]])
                 )
         except TimeoutError:
             await cb.message.edit(
