@@ -24,10 +24,10 @@ Send me any type of media to Rename.
 
 Made with ❤ by @TeleRoidGroup.
     """
-    HELP = """
+    HELP_TELEROID = """
 
     """
-    ABOUT = """
+    ABOUT_TELEROID = """
     """
     PROGRESS = """\n
 ╭───[**🔅Progress Bar🔅**]───⍟
