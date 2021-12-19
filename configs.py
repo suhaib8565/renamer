@@ -20,7 +20,7 @@ class Config(object):
     START_TEXT = """
 This is Telegram File Renameing Bot.
 
-Send me any type of media to Rename.
+Send me any type of media  or File to Rename it .
 
 Made with ❤ by @TeleRoidGroup.
     """
@@ -28,6 +28,25 @@ Made with ❤ by @TeleRoidGroup.
 
     """
     ABOUT_TELEROID = """
+This is a Renamer bOt with Permanent Thumbnail Support. 
+Send Me any Media or File I can Rename It. 
+╭────[**🔅@RenamerXDBot🔅**]────⍟
+│
+├🤖**My Name:**[@RenamerDBot](https://t.me/{BOT_USERNAME})
+│
+├📝**Language:**[Python3](https://www.python.org)
+│
+├📚**Library:**[Pyrogram](https://docs.pyrogram.org)
+│
+├📡**Hosted On:**[Heorku](https://heroku.com)
+│
+├👨‍💻**Developer:**[@Predator](https://t.me/PredatorHackerzZ) 
+│
+├👥**Bot Support:**[Support](https://t.me/TeleRoid14)
+│
+├🔔**Bot Updates:**[Channel](https://t.me/TeleRoidGroup)
+│
+╰──────[ 😎 ]───────────⍟
     """
     PROGRESS = """\n
 ╭───[**🔅Progress Bar🔅**]───⍟
