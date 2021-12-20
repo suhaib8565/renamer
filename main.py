@@ -408,9 +408,8 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
                 text="Sorry Unkil,\n5 Minutes Passed! I can't wait more.",
                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🚶 Go Back", callback_data="openSettings")]])
             )
- 
     elif "about" in cb.data:
-        await cmd.message.edit(
+        await cb.edit_message_text(
             Config.ABOUT_TEXT,
             parse_mode="Markdown",
             disable_web_page_preview=True,
@@ -428,7 +427,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         )
 
     elif "help" in cb.data:
-        await cmd.message.edit(
+        await cb.edit_message_text(
             Config.HELP_TEXT,
             parse_mode="Markdown",
             disable_web_page_preview=True,
@@ -446,7 +445,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
         )
 
     elif "home" in cb.data:
-        await cmd.message.edit(
+        await cb.edit_message_text(
             Config.START_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
             parse_mode="Markdown",
             disable_web_page_preview=True,
