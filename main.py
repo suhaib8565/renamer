@@ -49,6 +49,66 @@ async def start_handler(bot: Client, event: Message):
     )
 
 
+@RenameBot.on_message(filters.private & filters.command("help"))
+async def help_handler(bot: Client, event: Message, cb=False):
+    await AddUserToDatabase(bot, event)
+    FSub = await ForceSub(bot, event)
+    if FSub == 400:
+        return
+    if not cb:
+        send_msg = await event.reply_text("**👀 Processing......**", quote=True)    
+    await send_msg.edit(
+      text=f"{Config.HELP_TELEROID}".format(event.from_user.mention), 
+      reply_markup=
+                [
+                                        [
+						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ", url="https://t.me/Moviesflixers_DL")
+					],
+					[
+						InlineKeyboardButton("👥 Aʙᴏᴜᴛ", callback_data="about"),
+						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
+					]
+                ], 
+      disable_web_page_preview=True
+       )
+    if cb:
+        return await event.message.edit(
+                 text=f"{Config.HELP_TELEROID}".format(event.from_user.mention),
+                 reply_markup=HELP_BUTTONS,
+                 disable_web_page_preview=True
+                     )
+
+
+@RenameBot.on_message(filters.private & filters.command("about"))
+async def about_handler(bot: Client, event: Message, cb=False):
+    await AddUserToDatabase(bot, event)
+    FSub = await ForceSub(bot, event)
+    if FSub == 400:
+        return
+    if not cb:
+        send_msg = await event.reply_text("**Processing......**", quote=True)    
+    await send_msg.edit(
+      text=f"{Config.ABOUT_TELEROID}", 
+      reply_markup=ABOUT_BUTTONS, 
+      disable_web_page_preview=True
+       )
+    if cb:
+        return await event.message.edit(
+                 text=f"{Config.ABOUT_TELEROID}",
+                 reply_markup=
+                [
+					[
+						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://t.me/Moviesflixers_DL")
+					],
+					[
+						InlineKeyboardButton("♻ Help", callback_data="help"),
+						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
+					]
+	        ],
+                 disable_web_page_preview=True
+                     )
+
+
 @RenameBot.on_message(filters.private & (filters.video | filters.document | filters.audio))
 async def rename_handler(bot: Client, event: Message):
     await AddUserToDatabase(bot, event)
