@@ -55,10 +55,8 @@ async def help_handler(bot: Client, event: Message, cb=False):
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
-    if not cb:
-        send_msg = await event.reply_text("**👀 Processing......**", quote=True)    
     await send_msg.edit(
-      text=f"{Config.HELP_TELEROID}".format(event.from_user.mention), 
+      text=f"{Config.HELP_TEXT}".format(event.from_user.mention), 
       reply_markup=
                 [
                                         [
@@ -71,12 +69,6 @@ async def help_handler(bot: Client, event: Message, cb=False):
                 ], 
       disable_web_page_preview=True
        )
-    if cb:
-        return await event.message.edit(
-                 text=f"{Config.HELP_TELEROID}".format(event.from_user.mention),
-                 reply_markup=HELP_BUTTONS,
-                 disable_web_page_preview=True
-                     )
 
 
 @RenameBot.on_message(filters.private & filters.command("about"))
@@ -85,17 +77,9 @@ async def about_handler(bot: Client, event: Message, cb=False):
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
-    if not cb:
-        send_msg = await event.reply_text("**Processing......**", quote=True)    
     await send_msg.edit(
-      text=f"{Config.ABOUT_TELEROID}", 
-      reply_markup=ABOUT_BUTTONS, 
-      disable_web_page_preview=True
-       )
-    if cb:
-        return await event.message.edit(
-                 text=f"{Config.ABOUT_TELEROID}",
-                 reply_markup=
+      text=f"{Config.ABOUT_TEXT}", 
+      reply_markup=
                 [
 					[
 						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://t.me/Moviesflixers_DL")
@@ -105,8 +89,8 @@ async def about_handler(bot: Client, event: Message, cb=False):
 						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
 					]
 	        ],
-                 disable_web_page_preview=True
-                     )
+      disable_web_page_preview=True
+       )
 
 
 @RenameBot.on_message(filters.private & (filters.video | filters.document | filters.audio))
