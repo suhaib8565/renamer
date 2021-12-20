@@ -50,47 +50,41 @@ async def start_handler(bot: Client, event: Message):
 
 
 @RenameBot.on_message(filters.private & filters.command("help"))
-async def help_handler(bot: Client, event: Message, cb=False):
+async def start_handler(bot: Client, event: Message):
     await AddUserToDatabase(bot, event)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
-    await send_msg.edit(
-      text=f"{Config.HELP_TEXT}".format(event.from_user.mention), 
-      reply_markup=
-                [
-                                        [
-						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ", url="https://t.me/Moviesflixers_DL")
-					],
-					[
-						InlineKeyboardButton("👥 Aʙᴏᴜᴛ", callback_data="about"),
-						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
-					]
-                ], 
-      disable_web_page_preview=True
-       )
+    await event.reply_text(
+        text=f"{Config.HELP_TEXT}",
+        quote=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("🏡 Home", callback_data="home"),
+                 InlineKeyboardButton("🗣️ About", callback_data="about")],
+                [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
+            ]
+        )
+    )
 
 
 @RenameBot.on_message(filters.private & filters.command("about"))
-async def about_handler(bot: Client, event: Message, cb=False):
+async def start_handler(bot: Client, event: Message):
     await AddUserToDatabase(bot, event)
     FSub = await ForceSub(bot, event)
     if FSub == 400:
         return
-    await send_msg.edit(
-      text=f"{Config.ABOUT_TEXT}", 
-      reply_markup=
-                [
-					[
-						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://t.me/Moviesflixers_DL")
-					],
-					[
-						InlineKeyboardButton("♻ Help", callback_data="help"),
-						InlineKeyboardButton("🏠 Hᴏᴍᴇ", callback_data="home")
-					]
-	        ],
-      disable_web_page_preview=True
-       )
+    await event.reply_text(
+        text=f"{Config.ABOUT_TEXT}",
+        quote=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [InlineKeyboardButton("🏡 Home", callback_data="home"),
+                 InlineKeyboardButton("🍃 Help", callback_data="help")],
+                [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
+            ]
+        )
+    )
 
 
 @RenameBot.on_message(filters.private & (filters.video | filters.document | filters.audio))
@@ -421,7 +415,7 @@ async def button(bot: Client, cb: CallbackQuery):
     cb_data = cmd.data
     if "about" in cb_data:
         await cmd.message.edit(
-            Config.ABOUT_TELEROID,
+            Config.ABOUT_TEXT,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -439,7 +433,7 @@ async def button(bot: Client, cb: CallbackQuery):
 
     elif "help" in cb_data:
         await cmd.message.edit(
-            Config.HELP_TELEROID,
+            Config.HELP_TEXT,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
