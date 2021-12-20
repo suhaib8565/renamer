@@ -432,7 +432,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             )
 
 @RenameBot.on_callback_query()
-async def button(bot: Client, cmd: CallbackQuery):
+async def button(bot: Client, cb: CallbackQuery):
 
     cb_data = cmd.data
     if "about" in cb_data:
