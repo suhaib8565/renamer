@@ -24,7 +24,7 @@ Send me any type of media  or File to Rename it .
 
 Made with ❤ by @TeleRoidGroup.
     """
-    HELP_TEXT = """**Hello {}, Follow these For Using Meh..**
+    HELP_TEXT = """**Follow these Steps For Using Meh..**
  
 **➠ Configure the Settings before using me.....
 ➠ Send a photo to set it as your custom thumbnail..... 
@@ -35,27 +35,27 @@ Made with ❤ by @TeleRoidGroup.
 - /help - How to Use
 - /about - About Me
 - /settings - Configure Settings 
-- /showthumb & /deletethumb - For Thumbnail
+- /show_thumb & /del_thumb - For Thumbnail
 © Made with ❤ By @TheTeleRoid**
 """
     ABOUT_TEXT = """
 This is a Renamer bOt with Permanent Thumbnail Support. 
 Send Me any Media or File I can Rename It. 
-╭────[**🔅@RenamerXDBot🔅**]────⍟
+╭───[🔅@RenamerXDBot🔅]──⍟
 │
-├🤖**My Name:**[@RenamerDBot](https://t.me/{BOT_USERNAME})
+├🤖**My Name:** [@RenamerDBot](https://t.me/{BOT_USERNAME})
 │
-├📝**Language:**[Python3](https://www.python.org)
+├📝**Language:** [Python3](https://www.python.org)
 │
-├📚**Library:**[Pyrogram](https://docs.pyrogram.org)
+├📚**Library:** [Pyrogram](https://docs.pyrogram.org)
 │
-├📡**Hosted On:**[Heorku](https://heroku.com)
+├📡**Hosted On:** [Heorku](https://heroku.com)
 │
-├👨‍💻**Developer:**[@Predator](https://t.me/PredatorHackerzZ) 
+├👨‍💻**Developer:** [@Predator](https://t.me/PredatorHackerzZ) 
 │
-├👥**Bot Support:**[Support](https://t.me/TeleRoid14)
+├👥**Bot Support:** [Support](https://t.me/TeleRoid14)
 │
-├🔔**Bot Updates:**[Channel](https://t.me/TeleRoidGroup)
+├🔔**Bot Updates:** [Channel](https://t.me/TeleRoidGroup)
 │
 ╰──────[ 😎 ]───────────⍟
     """
