@@ -24,7 +24,7 @@ Send me any type of media  or File to Rename it .
 
 Made with ❤ by @TeleRoidGroup.
     """
-    HELP_TELEROID = """**Hello {}, Follow these For Using Meh..**
+    HELP_TEXT = """**Hello {}, Follow these For Using Meh..**
  
 **➠ Configure the Settings before using me.....
 ➠ Send a photo to set it as your custom thumbnail..... 
@@ -38,7 +38,7 @@ Made with ❤ by @TeleRoidGroup.
 - /showthumb & /deletethumb - For Thumbnail
 © Made with ❤ By @TheTeleRoid**
 """
-    ABOUT_TELEROID = """
+    ABOUT_TEXT = """
 This is a Renamer bOt with Permanent Thumbnail Support. 
 Send Me any Media or File I can Rename It. 
 ╭────[**🔅@RenamerXDBot🔅**]────⍟
