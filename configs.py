@@ -43,7 +43,7 @@ This is a Renamer bOt with Permanent Thumbnail Support.
 Send Me any Media or File I can Rename It. 
 ╭───[🔅@RenamerXDBot🔅]──⍟
 │
-├🤖**My Name:** [@RenamerDBot](https://t.me/{BOT_USERNAME})
+├🤖**My Name:** [@RenameDBot](https://t.me/Renamedbot)
 │
 ├📝**Language:** [Python3](https://www.python.org)
 │
