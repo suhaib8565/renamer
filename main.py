@@ -446,7 +446,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
 
     elif "home" in cb.data:
         await cb.edit_message_text(
-            Config.START_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
+            Config.START_TEXT,
             parse_mode="Markdown",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
