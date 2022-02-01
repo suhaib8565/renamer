@@ -193,7 +193,7 @@ async def rename_handler(bot: Client, event: Message):
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await reply_.edit("Current Process Cancelled!")
         except TimeoutError:
-            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me File Again to Rename.")
+            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me the File Once Again to Rename.")
 
 
 @RenameBot.on_message(filters.private & filters.photo & ~filters.edited)
@@ -252,17 +252,6 @@ async def show_thumb_handler(bot: Client, event: Message):
                 pass
     else:
         await event.reply_text("No Thumbnail Found in Database!\nSend a Thumbnail to Save it for New File.", quote=True)
-
-
-@RenameBot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
-async def send_msg(_, m: Message):
-    await broadcast_handler(m, db)
-
-
-@RenameBot.on_message(filters.private & filters.command("status") & filters.user(Config.BOT_OWNER))
-async def sts(_, m: Message):
-    total_users = await db.total_users_count()
-    await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode="Markdown", quote=True)
 
 
 @RenameBot.on_message(filters.private & filters.command("settings"))
