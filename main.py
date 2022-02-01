@@ -88,14 +88,25 @@ async def start_handler(bot: Client, event: Message):
 
 
 @RenameBot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
-async def broadcast_handler_open(_, m: Message):
-    await main_broadcast_handler(m, db)
+async def _broadcast(_, event: Message):
+    await broadcast_handler(event)
 
 
 @RenameBot.on_message(filters.private & filters.command("status") & filters.user(Config.BOT_OWNER))
-async def sts(_, m: Message):
+async def show_status_count(_, event: Message):
+    total, used, free = shutil.disk_usage(".")
+    total = humanbytes(total)
+    used = humanbytes(used)
+    free = humanbytes(free)
+    cpu_usage = psutil.cpu_percent()
+    ram_usage = psutil.virtual_memory().percent
+    disk_usage = psutil.disk_usage('/').percent
     total_users = await db.total_users_count()
-    await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode="Markdown", quote=True)
+    await event.reply_text(
+        text=f"**Total Disk Space:** {total} \n**Used Space:** {used}({disk_usage}%) \n**Free Space:** {free} \n**CPU Usage:** {cpu_usage}% \n**RAM Usage:** {ram_usage}%\n\n**Total Users in DB:** `{total_users}`",
+        parse_mode="Markdown",
+        quote=True
+    )
 
 
 @RenameBot.on_message(filters.private & (filters.video | filters.document | filters.audio))
