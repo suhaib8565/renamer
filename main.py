@@ -255,7 +255,7 @@ async def show_thumb_handler(bot: Client, event: Message):
 
 
 @RenameBot.on_message(filters.private & filters.command("broadcast") & filters.user(Config.BOT_OWNER) & filters.reply)
-async def broadcast_handler_open(_, m: Message):
+async def broadcast_handler(m: Message):
     await main_broadcast_handler(m, db)
 
 
