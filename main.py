@@ -204,7 +204,7 @@ async def rename_handler(bot: Client, event: Message):
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await reply_.edit("Current Process Cancelled!")
         except TimeoutError:
-            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me the File Once Again to Rename.")
+            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me File Again to Rename.")
 
 
 @RenameBot.on_message(filters.private & filters.photo & ~filters.edited)
