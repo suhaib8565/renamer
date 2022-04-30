@@ -39,8 +39,8 @@ async def start_handler(bot: Client, event: Message):
         quote=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [InlineKeyboardButton("Channel", url="https://t.me/TeleRoidGroup"),
-                 InlineKeyboardButton("Support", url="https://t.me/TeleRoid14")],
+                [InlineKeyboardButton("Channel", url="https://t.me/kashir_bots"),
+                 InlineKeyboardButton("Support", url="https://t.me/Dsrs_Group")],
                 [InlineKeyboardButton("🍃 Help", callback_data="help"),
                  InlineKeyboardButton("🗣️ About", callback_data="about")],
                 [InlineKeyboardButton("🔐 Close", callback_data="closeMeh")]
@@ -193,7 +193,7 @@ async def rename_handler(bot: Client, event: Message):
             elif ask_.text and (ask_.text.startswith("/") is True):
                 await reply_.edit("Current Process Cancelled!")
         except TimeoutError:
-            await reply_.edit("Sorry Unkil,\n5 Minutes Passed! I can't wait more. Send me the File Once Again to Rename.")
+            await reply_.edit("Sorry bro,\n5 Minutes Passed! I can't wait more. Send me the File Once Again to Rename.")
 
 
 @RenameBot.on_message(filters.private & filters.photo & ~filters.edited)
@@ -416,7 +416,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
 					[
-						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", url="https://t.me/Moviesflixers_DL")
+						InlineKeyboardButton("🔅 Youtube", url="https://www.youtube.com/channel/UCsNkiEm2go3Zyzum7e3PpBg")
 					],
 					[
 						InlineKeyboardButton("♻ Help", callback_data="help"),
@@ -434,7 +434,7 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                                         [
-						InlineKeyboardButton("🔅 Sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ", url="https://t.me/Moviesflixers_DL")
+						InlineKeyboardButton("🔅 youtube ", url="https://www.youtube.com/channel/UCsNkiEm2go3Zyzum7e3PpBg")
 					],
 					[
 						InlineKeyboardButton("👥 Aʙᴏᴜᴛ", callback_data="about"),
@@ -452,8 +452,8 @@ async def callback_handlers(bot: Client, cb: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-						InlineKeyboardButton("Sᴜᴘᴘᴏʀᴛ", url="https://t.me/TeleRoid14"),
-						InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/TeleRoidGroup")
+						InlineKeyboardButton("Sᴜᴘᴘᴏʀᴛ", url="https://t.me/Dsrs_Group"),
+						InlineKeyboardButton("Cʜᴀɴɴᴇʟ", url="https://t.me/kashir_bots")
 					],
                                         [
 						InlineKeyboardButton("🍃 Help ", callback_data="help"),
